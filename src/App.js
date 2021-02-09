@@ -2,26 +2,27 @@ import logo from './logo.svg';
 import './App.css';
 import reactDom from 'react-dom';
 
-let person = {
-  name: "Omar Farook",
-  job: "Engineer"
-}
 
-let style = {
-  color: 'red',
-  backgroundColor: 'yellow'
-}
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <p>I am a react person </p>
-        <p style={{ backgroundColor:'green' }}>
-          Edit done <code>src/App.js</code> and save to reload.
-        </p>
-        <h1 style={style}>My heading : { person.name +" "+ person.job }</h1>
+        <p>I am a react person </p>
+        <Person></Person>
+        <Person></Person>
+        <Person></Person>
       </header>
+    </div>
+  );
+}
+
+
+function Person() {
+  return (
+    <div style={{border:'2px solid red', margin:'2px'}}>
+          <h1>Name: Omar Farook</h1>
+        <h3>Name: Omar Farook</h3>
     </div>
   );
 }
