@@ -9,16 +9,22 @@ function App() {
     { name: 'Photoshop', price: '$99.23' },
     { name: 'Illustator', price: '$60.23' },
     { name: 'Pdf Reader', price: '$80.23' },
+    { name: 'Pdf ', price: '$89.23' },
   ];
+
+  const productsName = products.map(pd => <Products product={pd}></Products>);
+  //console.log(productsName);
 
   return (
     <div className="App">
       <header className="App-header">
         <p>I am a react person </p>
-
-        <Products product={products[0]}></Products>
-        <Products product={products[1]}></Products>
-        
+        <ul>
+          {
+            productsName
+          }
+    </ul>
+       
       </header>
     </div>
   );
