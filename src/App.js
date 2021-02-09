@@ -1,6 +1,8 @@
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import reactDom from 'react-dom';
+
 
 
 
@@ -19,6 +21,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>I am a react person </p>
+        <Counter></Counter>
+        <Users></Users>
         <ul>
           {
             productsName
@@ -29,6 +33,40 @@ function App() {
     </div>
   );
 }
+
+function Counter() {
+
+  const [count, setCount] = useState(10);
+
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increse</button>
+      <button onClick={()=>setCount(count-1)}> Decress</button>
+    </div>
+  );
+}
+
+function Users() {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(data => setUsers(data));
+  }, []);
+  
+  return (
+    <div>
+      <h3>Danamic Users:  {users.length}</h3>
+      <ul>
+        {
+          users.map(user => <li>{user.name}- {user.phone } ({user.email})</li>)
+        }
+      </ul>
+    </div>
+  );
+}
+
 
 function Products(props) {
   const productStyle = {
