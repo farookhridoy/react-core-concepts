@@ -5,29 +5,45 @@ import reactDom from 'react-dom';
 
 
 function App() {
-
-  const nayok = ['Anower', 'jaforikbarl', 'Alamgir', 'Salman Shah'];
+  const products = [
+    { name: 'Photoshop', price: '$99.23' },
+    { name: 'Illustator', price: '$60.23' },
+    { name: 'Pdf Reader', price: '$80.23' },
+  ];
 
   return (
     <div className="App">
       <header className="App-header">
         <p>I am a react person </p>
-        <Person name={nayok[0]}></Person>
-        <Person name={nayok[1]}></Person>
-        <Person name={nayok[2]}></Person>
+
+        <Products product={products[0]}></Products>
+        <Products product={products[1]}></Products>
         
       </header>
     </div>
   );
 }
 
+function Products(props) {
+  const productStyle = {
+    border: '1px solid gray',
+    borderRadius: '5px',
+    backgroundColor: 'lightgray',
+    height :'250px',
+    width :'200px',
+    float :'left',
+  }
+  
+  const { name, price } = props.product;
 
-function Person(props) {
+  //console.log(name, price);
+
   return (
-    <div style={{border:'2px solid red', margin:'2px'}}>
-      <h1>Name:{ props.name}</h1>
+    <div style={productStyle}>
+      <h3>{name }</h3>
+      <h5>{price }</h5>
+      <button>Buy Now</button>
     </div>
   );
 }
-
 export default App;
